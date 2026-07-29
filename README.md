@@ -78,6 +78,62 @@ ____________________________
 ---
 
 ##  Output
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+img = cv2.imread('parrot.jpg',cv2.IMREAD_GRAYSCALE)
+plt.imshow(img, cmap='gray')
+plt.title('original_image')
+plt.show()
+```
+
+<img width="497" height="509" alt="image" src="https://github.com/user-attachments/assets/09fb7098-6d1f-4da5-8e89-7b40ddca8495" />
+
+```
+plt.hist(img.ravel(),256,range = [0, 256]);
+plt.title('Original Image')
+plt.show()
+```
+<img width="1122" height="817" alt="image" src="https://github.com/user-attachments/assets/b14d745f-4181-4cee-8dfb-693a510eb000" />
+
+
+```
+img_eq = cv2.equalizeHist(img)
+plt.hist(img_eq.ravel(), 256, range = [0, 256]); 
+plt.title('Equalized Histogram')
+```
+
+<img width="656" height="535" alt="image" src="https://github.com/user-attachments/assets/1333c4b2-87ea-40e5-96d0-1c2815655adc" />
+
+```
+plt.imshow(img_eq, cmap='gray')
+plt.title('original image')
+plt.show()
+
+```
+<img width="494" height="510" alt="image" src="https://github.com/user-attachments/assets/9e8ed206-3db5-4a29-864a-340b7457403f" />
+
+```
+img = cv2.imread('parrot.jpg', cv2.IMREAD_COLOR)
+img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+img_hsv[:,:,2] = cv2.equalizeHist(img_hsv[:, :, 2])
+img_eq = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
+plt.subplot(121); plt.imshow(img[:, :, ::-1]); plt.title('Original Color Image')
+plt.subplot(122); plt.imshow(img_eq[:, :, ::-1]); plt.title('Equalized Image')
+```
+<img width="656" height="371" alt="image" src="https://github.com/user-attachments/assets/c429cdf6-9645-4586-bfdf-0a2300dfa186" />
+
+
+```
+plt.figure(figsize = [12,10])
+plt.subplot(221); plt.imshow(img[:, :, ::-1]); plt.title('Original Color Image')
+plt.subplot(222); plt.imshow(img_eq[:, :, ::-1]); plt.title('Equalized Image')
+plt.subplot(223); plt.hist(img.ravel(),256,range = [0, 256]); plt.title('Original Image')
+plt.subplot(224); plt.hist(img_eq.ravel(),256,range = [0, 256]); plt.title('Histogram Equalized')
+```
+<img width="945" height="805" alt="image" src="https://github.com/user-attachments/assets/6953043f-6dba-4152-b204-17b6afd3b903" />
+
 
 ### Grayscale Histogram Equalization
 

@@ -70,9 +70,9 @@ Display original color image, histogram, enhanced image, and enhanced histogram 
 ## Program
 
 ### Developed By:
-**Name:** ____________________________  
+**Name:** HARIHARAN S
 
-### Register No:
+### Register No: 212224040101
 ____________________________  
 
 ---
